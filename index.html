@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <!----CSS link----->
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://kit.fontawesome.com/1c12529cfe.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="hero">
+      <nav>
+        <img src="./img/logo.png" class="logo" />
+        <ul>
+          <li><a href="#header">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="https://www.youtube.com/channel/UCKnlINwFKwaCLEbG8kmZ_2w">YT</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="C:\Users\USER\Downloads\Resume Aditya Rode.pdf" class="btn">Resume</a>
+      </nav>
+
+      <div class="content">
+        <span class="title">Freelance Web Developer</span>
+        <h1>Hello, I’m <span>Aditya</span></h1>
+        <p>
+          I’m working on a professional, visually sophisticated and
+          technologically proficient, responsive and multi-functional React
+          Components.
+        </p>
+        <a href="https://drive.google.com/uc?export=download&id=1wcASawZz1MZzZX4DjPTChqs6xrOteMrT" class="btn">Download CV</a>
+      </div>
+    </div>
+      
+      <!------about----->
+      
+          <div id="about">
+              <div class="hero1">
+      <div class="container">
+       <div class="row">
+          <div class="about-col-1">
+              <img src="img/imgg.png"> 
+          </div>
+           <div class="about-col-2">
+               <h1 class="sub-title">About Me</h1>
+               <p>Hi I'm Aditya. I've studied Electronics Engineering in Vivekanand Education Society Institute of technology,Chembur. I've Completed various projects in my acedemic years.
+               </p>
+               <div class="tab-titles">
+                
+                <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                <p class="tab-links" onclick="opentab('projects')">Project</p>
+                   <p class="tab-links" onclick ="opentab('experience')">Experience</p>                   
+                   <p class="tab-links" onclick ="opentab('education')">Education</p>
+               </div>
+               <div class="tab-contents active-tab" id="skills">
+               <ul>
+                   <li><span>UI/UX</span><br>Designing Web/App Interfaces</li>
+                   <li><span>Web Development</span><br>Web App Development</li>
+                   <li><span>App Development</span><br>Building Android/IOS App</li>
+               </ul>
+           </div>
+           <div class="tab-contents" id="projects">
+            <ul>
+                <li><span>2019</span><br>Object Counter</li>
+                <li><span>2020</span><br>Home Automation</li>
+                <li><span>2021-2022</span><br>Web-App for Sign Language Recognition</li>
+            </ul>
+        </div>
+               <div class="tab-contents" id="experience">
+               <ul>
+                   <li><span>2022</span><br>Total Fresher But Eager to learn new Things</li>    
+               </ul>
+              </div>
+               <div class="tab-contents" id="education">
+               <ul>
+                   <li><span>2016</span><br>SSC Maharashtra State Board</li>
+                   <li><span>2018</span><br>HSC Maharashtra State Board</li>
+                   <li><span>2022</span><br>Electronics Engineering</li>
+               </ul>
+              </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+      
+      <!-----contact----->
+      
+      <div id="contact">
+          <div class="hero1">
+          <div class="container">
+              <div class="row">
+                  <div class="contact-left">
+                  
+                      <h1 class="sub-title"> Contact Me</h1>
+                      <p><i class="fa-solid fa-paper-plane"></i><a href="mailto:adityarode100@gmail.com">adityarode100@gmail.com</a></p>
+                      <p><i class="fa fa-phone" aria-hidden="true"></i><a href="tel:9130593275">
+
+              
+                        9130593275</a></p>
+                        
+                        
+                      <div class="social-icons">
+                          <a href="https://www.linkedin.com/in/aditya-rode/"><i class="fab fa-linkedin"></i></a>
+                          <a href="https://github.com/Adityarode100"><i class="fab fa-github"></i></a>
+                      </div>  
+                      
+                     </div>
+                    
+                      <div class="contact right">
+              <form name="submit-to-google-sheet">
+                  <input type="text" name="Name" placeholder="Your Name" required>
+                  <input type="email" name="email" placeholder="Your Email" required>
+                  <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                  <button type="submit" class="btn"> Submit</button>
+                  
+              </form>
+              <span id="msg"></span>
+            </div>
+      </div>
+    </div>
+    
+      </div>
+      </div>
+      <script>
+          var tablinks = document.getElementsByClassName("tab-links");
+          var tabcontents = document.getElementsByClassName("tab-contents");
+          
+          function opentab(tabname){
+              for(tablink of tablinks){
+                  tablink.classList.remove("active-link");
+              }
+              for(tabcontent of tabcontents){
+                  tabcontent.classList.remove("active-tab");
+              }
+          event.currentTarget.classList.add("active-link");
+          document.getElementById(tabname).classList.add("active-tab")
+          }
+     </script>
+     <script>
+      
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbx5fQDbB7HigC-r_egVndpzkL0o9VSSoU3K6vXHjaarlPiORl-GNJzGoJ2Ok6Fdvu1FFw/exec'
+      const form = document.forms['submit-to-google-sheet']
+      const msg = document.getElementById("msg")
+      form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+          .then(response => {
+            msg.innerHTML = "Message Sent Successfully!"
+            setTimeout(function(){
+            msg.innerHTML=""
+          },5000)
+          form.reset()
+          })
+          .catch(error => console.error('Error!', error.message))
+      })
+    </script>
+
+  </body>
+</html>
